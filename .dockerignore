@@ -1,0 +1,5 @@
+.git
+.github
+work/
+*.tmp
+.DS_Store
