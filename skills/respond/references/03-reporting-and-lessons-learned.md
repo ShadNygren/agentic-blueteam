@@ -77,7 +77,10 @@ didn't help," "this tool assumed access we didn't have," "we lost time waiting o
   detection, containment, notification, legal review, comms), **signed off** so there's no confusion mid-incident.
 - **Annual (at least) IR exercises** — required by many regimes; run them **per division/scenario** (SOC, client
   services, cloud, AI). Driving an exercise off a *current, real-world* incident motivates participation and
-  surfaces gaps (e.g. an AI/Copilot data-leak scenario).
+  surfaces gaps (e.g. an AI/Copilot data-leak scenario). A red-team **adversary emulation** is a live exercise —
+  it tests the **Defenders'** readiness/resilience, not just the tech: did detection, response, **and escalation/
+  communication** happen *in good time* (did the SOC analyst reach the CISO/decision-maker when they should)?
+  Test the **people and process** (escalation timing, decision paths), not only whether a rule fired.
 - **Evidence-retention policy** — define **how long** evidence is kept (longer if prosecution is possible),
   **where** (secure, access-controlled storage — which has a real cost), and per legal/contract/IR-retainer
   terms. Historical incident data also enables future correlation.

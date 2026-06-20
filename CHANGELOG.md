@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **Adversary-emulation wisdom integrated** (from red-team CTI/emulation material): `detect/03` now explains the
+  cyclic **emulation lifecycle** (choose → test → execute → analyze → improve; blue owns analyze+improve) and that
+  emulation tests the **Defenders' readiness/resilience — including escalation/communication** — not just whether
+  a rule fired, with the quarter-over-quarter Navigator **report card**; and prioritize detection coverage for the
+  actors that target your **industry+geography** (the same ones red picks). `respond/03`: IR exercises must test
+  **people/process — escalation timing and decision paths** — not only technical response.
 - **`docs/STRATEGY_OF_ADVERSARIAL_COEVOLUTION.md`** — a strategic-foundation paper (shared verbatim with the
   red-team companion): *when both sides know the playbook, knowledge is only the floor* — victory turns on
   structural asymmetry, tempo (OODA), terrain, deception, force, discipline, and above all **adaptation velocity**

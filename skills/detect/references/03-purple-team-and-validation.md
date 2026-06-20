@@ -4,14 +4,25 @@ A detection you haven't *triggered* is a hypothesis, not a control. Validation c
 offensive side: run the technique, confirm the detection fires (or find the gap), tune, repeat. This is where
 **Agentic Blueteam meets Agentic Redteam.**
 
+## The adversary-emulation lifecycle (what red is running)
+Red runs a cyclic loop you should understand so you can plug into it:
+**choose a technique → choose a test → execute the procedure → analyze detection of it → improve defenses →
+repeat.** Red owns the first three; **blue owns analyze + improve.** Crucially, emulation tests the **Defenders,
+not just the defenses** — your **readiness and resilience**: did the SOC *detect* it, *respond*, and **escalate
+in good time** (does the analyst reach the CISO when they should)? It's holistic — people, **process
+(communication/escalation)**, and technology. So measure more than "did a rule fire": measure detection,
+response, *and* the escalation/decision path.
+
 ## The red/blue loop
 ATT&CK is the shared language, so the two sides line up technique-for-technique:
 1. **Red emulates** (Agentic Redteam) a threat actor and produces an **ATT&CK-mapped attack narrative + an
-   ATT&CK Navigator layer + a detection-gap matrix** (what they did, what was logged/alerted/missed).
+   ATT&CK Navigator layer + a detection-gap matrix** (what they did, what was logged/alerted/missed). Red picks
+   the actor by your **industry + geography** — so prioritize your detection coverage for those same actors.
 2. **Blue consumes** those mapped techniques: for each one, check **did we have the data? did a detection fire?**
    Build/tune detections for the misses.
 3. **Re-run** — the next emulation verifies the new detections fire and measures improvement (MTTD down,
-   coverage up). Track Navigator layers quarter-over-quarter.
+   coverage up). Track Navigator layers quarter-over-quarter as a **report card** of whether the blue team is
+   improving.
 
 **Purple-team modes:** *live* (run a technique, watch telemetry, tune the detection in real time — fastest
 detection-engineering loop) or *debrief* (red runs covertly, then both sides walk the kill chain against the
