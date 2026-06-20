@@ -4,10 +4,12 @@
 # Driven by Claude Code. Defensive companion to Agentic Redteam.
 # Copyright (c) 2026 Shad Nygren / Virtual Hipster Corporation · Apache-2.0 License
 #
-# Base: debian stable-slim (override with --build-arg BASE_TAG=...). A clean, reproducible base onto which we
-# install defensive/DFIR tooling — deliberately distinct from the red side's Kali base.
-ARG BASE_TAG=stable-slim
-FROM debian:${BASE_TAG}
+# Base: ubuntu 24.04 (override with --build-arg BASE_TAG=...). A complete, well-stocked base onto which we install
+# defensive/DFIR tooling — deliberately distinct from the red side's Kali base. NOTE: Ubuntu 24.04 enforces
+# PEP 668 (externally-managed environment), so Python apps are installed with pipx (isolated virtualenvs), not
+# `pip --break-system-packages` (which conflicts with apt-managed packages).
+ARG BASE_TAG=24.04
+FROM ubuntu:${BASE_TAG}
 
 LABEL org.opencontainers.image.title="Agentic Blueteam" \
       org.opencontainers.image.description="AI-augmented defensive security — detection, hunting, incident response — driven by Claude Code" \
@@ -16,14 +18,16 @@ LABEL org.opencontainers.image.title="Agentic Blueteam" \
       org.opencontainers.image.authors="Shad Nygren / Virtual Hipster Corporation"
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    AGENTIC_BLUETEAM_HOME=/opt/agentic-blueteam
+    AGENTIC_BLUETEAM_HOME=/opt/agentic-blueteam \
+    PIPX_HOME=/opt/pipx \
+    PIPX_BIN_DIR=/usr/local/bin
 
-# 1) Core utilities + reliable defensive tools from apt
+# 1) Core utilities + reliable defensive tools from apt (pipx for PEP-668-safe Python apps)
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
       ca-certificates curl git jq ripgrep \
       yara \
-      python3 python3-pip python3-venv \
+      python3 python3-pip python3-venv pipx \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -37,9 +41,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 RUN npm install -g @anthropic-ai/claude-code \
  && npm cache clean --force
 
-# 4) Python defensive tooling (best-effort — the smoke test treats these as non-fatal):
-#    sigma-cli (detection-as-code), volatility3 (memory forensics).
-RUN pip3 install --no-cache-dir --break-system-packages sigma-cli volatility3 || true
+# 4) Python defensive tooling via pipx (isolated venvs; PEP-668-safe):
+#    sigma-cli (detection-as-code -> `sigma`), volatility3 (memory forensics -> `vol`/`volshell`).
+RUN pipx install sigma-cli \
+ && pipx install volatility3
 
 # 5) The value-add: the Claude Code skills (detect + respond), docs, and tests.
 #    Skills are placed where Claude Code auto-discovers them (~/.claude/skills/).
