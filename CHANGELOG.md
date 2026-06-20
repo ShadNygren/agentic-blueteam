@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   counting / outliers / enrichment / pivoting), and hunting by domain (endpoint/network/identity/cloud, ATT&CK-mapped).
 - **`respond` reference `03-reporting-and-lessons-learned.md`** — IR report structure, metrics (dwell time /
   MTTD/MTTC/MTTR), and closing the loop into `detect`/`hunt`.
+- **NIST SP 800-61r3 (2025) + CSF 2.0 integrated into `respond`/`detect`:** IR re-framed as enterprise risk
+  management/governance across the six CSF functions (Govern/Identify/Protect/Detect/Respond/Recover) with the
+  r2 four-phase lifecycle still operational; IR policy/plan/procedure trio; IR team structures (central/
+  distributed/coordinating); precursors-vs-indicators + NIST's three impact dimensions (functional/information/
+  recoverability); business-function ranking + RTO/RPO/BIA driving recovery order; SOAR runbooks (human-gated);
+  notification/reporting specifics (HHS/state-AG/GDPR clocks); RACI, maturity levels, annual per-division
+  exercises, evidence-retention policy; and **AI-incident handling** (govern shadow AI, risk-assess AI tools,
+  push Copilot/AI + DLP/sensitivity-label logs to the SIEM, breach-notification for AI data spillage).
 - **IR-practitioner wisdom integrated into `respond`** (from incident-response podcasts): the **incident→problem
   transition + exit criteria** and NIST-is-not-strictly-sequential / people·process·technology / prevention-as-
   data-sources (`00`); **observe-before-acting** (scope all + initial access before cleanup, don't tip off, when

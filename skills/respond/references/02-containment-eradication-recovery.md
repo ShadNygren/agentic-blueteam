@@ -44,6 +44,22 @@ Goal: limit damage while **preserving evidence** and **not tipping off** the adv
   observed TTPs; watch the previously affected assets and accounts. Post-incident monitoring is part of recovery,
   not separate from it (in case eradication missed something).
 - Phase the return to production; confirm business functionality and that the attacker's access is truly gone.
+- **Prioritize recovery by business value — you can't recover everything at once.** Use the org's
+  **business-function ranking / BIA** (business impact analysis) and each system's **RTO** (recovery time
+  objective — must it be up in 1h? 24h? 15 days?) and **RPO** (recovery point objective — how much data loss is
+  tolerable?). Bring the highest-ranked, lowest-RTO systems (tax/health/payments data) back first; a low-value
+  HR doc share can wait. Made on the fly without these rankings, recovery decisions are guesswork. (BIA/RTO/RPO
+  live in the BCP/DR program — IR consumes them.)
+
+## Automation & runbooks (SOAR) — gated
+Codify the response as **runbooks** so it's repeatable and fast (the maturity goal: "anyone can run the book,"
+not heroics). A SOAR/automation runbook for, e.g., compromised AWS credentials chains: **confirm** (GuardDuty/
+CloudTrail/Config + the IAM principal) → **contain** (revoke keys, kill sessions, quarantine the account, block
+access) → **investigate** (logs for the window, lateral movement) → **remediate** (rotate keys, enforce MFA,
+least-privilege) → **recover** (re-enable safe services) → **lessons learned** (update detections/guardrails).
+- **The human gate still applies to automated containment.** Any state-changing step an automation would take
+  (revoke/disable/block/isolate) must pass `response_guard.sh` + approval — automation drafts and stages the
+  actions; a human authorizes. Don't wire fully-autonomous destructive response.
 
 ## Post-incident (lessons learned → stronger defense)
 - Write the **root-cause report**: initial access → actions on objective, ATT&CK-mapped, with the timeline and
