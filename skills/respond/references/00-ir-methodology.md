@@ -11,8 +11,36 @@ repeatable, defensible, and preserves evidence while limiting damage.
 | Containment, Eradication & Recovery | Containment → Eradication → Recovery | stop spread, remove the foothold, restore to known-good |
 | Post-Incident Activity | Lessons Learned | root-cause report + improvements (feed the `detect` skill) |
 
-The lifecycle **loops** — analysis informs containment, new findings re-open analysis. Don't rush to eradicate
-before you've scoped the full footprint (whack-a-mole tips off the adversary and misses persistence).
+The two models share intent; SANS just splits Containment/Eradication/Recovery out. **The lifecycle is NOT
+strictly sequential** — NIST explicitly loops Containment back to Detection & Analysis, because you won't always
+get the scope right the first time. Per-phase metrics: **MTTD** (mean time to detect) measures Detection;
+**MTTR** (mean time to respond/recover) measures Containment→Recovery. Don't rush to eradicate before you've
+scoped the full footprint (whack-a-mole tips off the adversary and misses persistence).
+
+## Preparation underpins everything (people · process · technology)
+- **No silver-bullet tool.** Effective IR needs the right **technology** (tools that handle your data volume),
+  the right **people** (trained to use them), *and* the right **process** (do the people have the access/creds/
+  coordination to use the tool in the right place?). Doing two of the three well isn't enough for a
+  sophisticated incident.
+- **Prepare before the fire:** playbooks, **tabletop exercises**, defined criteria for what *is* an incident,
+  on-call/escalation paths, and the access (physical/electronic, domain-admin where needed) responders require.
+- **Prevention controls double as IR enablers.** Environment/risk assessments, network/host hardening, and
+  training (NIST's prevention guidance) also create **data sources** for IR and surface **visibility gaps**
+  before you need them — tabletop and red-team exercises find these (see the red side's purple-team loop).
+- **Lessons Learned feeds back into Preparation** — IR is a continuous-improvement loop, not a one-shot.
+
+## Incident vs. problem — know when an incident *ends*
+A subtle but high-value distinction. An **incident** is triggered when something violates the **CIA triad**
+(confidentiality / integrity / availability). Defining **exit criteria** is as important as defining entry
+criteria — don't leave something classified an "incident" for weeks/months with war-room paging.
+- When the immediate CIA violation is **fixed/stabilized**, the work transitions from an **incident** (urgent,
+  high-tempo, hourly/daily updates, war room) to a **problem** (problem management: assign a PM, set timelines,
+  open a project, root-cause and permanently fix or build a mitigation procedure).
+- Some phases (eradication/recovery of a bad infection, or a recurring vendor bug) genuinely take weeks — that's
+  **problem-management work**, with different cadence and comms, not an open incident. Move it off the incident
+  track once the bleeding has stopped.
+- Communication differs by mode: incident = frequent, focused updates to the right people; problem = scheduled
+  status to stakeholders. Avoid pointless recurring status meetings that just report "+1% done."
 
 ## Triage & severity
 - **Validate first** — is the alert a true incident or a false positive? (`references/01`.)

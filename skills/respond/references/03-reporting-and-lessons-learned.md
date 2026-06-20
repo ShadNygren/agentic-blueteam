@@ -29,15 +29,30 @@ Build it from `/work/INCIDENT.md` (kept current throughout). Audiences: executiv
   failure signal worth flagging).
 
 ## Lessons learned → stronger defense (close the loop)
+Give **fair** feedback across **people, process, and technology** — honest about what fell short, but not
+self-flagellating. **Celebrate what worked** (pat both your team and partner teams on the back — it builds the
+culture that makes the next response better) *and* **name the missed opportunities** ("we burned hours on X that
+didn't help," "this tool assumed access we didn't have," "we lost time waiting on ad-hoc approval").
+- **A lesson with no action item is wasted.** Don't just file notes in SharePoint/Confluence — **develop a plan
+  of action**, assign owners + dates, and track each item to completion. Lessons learned only matter if someone
+  implements them.
 - **Detection gaps → `detect` skill.** Every technique the adversary used that you **didn't detect** becomes a
   detection-engineering requirement and a row in the detection-gap matrix. Missing telemetry becomes a logging
   requirement.
 - **Hunt leads → `hunt` skill.** Residual questions ("are other hosts affected the same way?") become hunt
   hypotheses.
+- **Incident → problem handoff** — if a permanent fix is a multi-week effort or a vendor issue, move it to
+  **problem management** (PM, timeline, project, or a documented mitigation procedure) rather than leaving an
+  open incident (see `00-ir-methodology.md`).
 - **Playbooks & authorization** — update IR playbooks, contact lists, and the `AUTHORIZED_RESPONSE.txt` patterns
   based on what worked (and what was slow because it needed ad-hoc approval).
+- **Include all relevant parties — internal *and* external.** Loop in IR retainers/MSSPs, vendors, and partners
+  whose systems or actions were part of the incident or the response; they share in the lessons.
 - **Hardening** — the root cause fix (patch/config/credential rotation) should be tracked to completion, not just
   recommended.
+- **Document for maturity, compliance, and correlation** — SOC 2 and others require documented IR process +
+  records; historical incident data also lets you correlate future activity (e.g. re-link to a prior
+  not-fully-eradicated nation-state intrusion) and meet evidence-retention obligations.
 - **Blameless review** — focus on systems and process, not individuals; that's what gets honest input and real
   improvement.
 

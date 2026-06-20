@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   counting / outliers / enrichment / pivoting), and hunting by domain (endpoint/network/identity/cloud, ATT&CK-mapped).
 - **`respond` reference `03-reporting-and-lessons-learned.md`** — IR report structure, metrics (dwell time /
   MTTD/MTTC/MTTR), and closing the loop into `detect`/`hunt`.
+- **IR-practitioner wisdom integrated into `respond`** (from incident-response podcasts): the **incident→problem
+  transition + exit criteria** and NIST-is-not-strictly-sequential / people·process·technology / prevention-as-
+  data-sources (`00`); **observe-before-acting** (scope all + initial access before cleanup, don't tip off, when
+  to pull the plug) and **preserve evidence to disprove a breach** (HIPAA-by-default; firewall logs + the Windows
+  **SRUM** database show data exfil) (`01`); **containment ≠ isolation** and **eradication is never 100%** /
+  recovery tests the fixes (`02`); **fair lessons-learned that drive a tracked plan of action**, celebrate
+  strengths + name missed opportunities, include external parties (`03`). Plus environment-specific attack-vector
+  coverage in `detect`.
 
 ### Changed
 - **Base image → `ubuntu:24.04`** (more complete than debian-slim) and **Python tools installed via `pipx`**

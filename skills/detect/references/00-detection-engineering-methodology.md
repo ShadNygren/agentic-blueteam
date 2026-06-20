@@ -23,6 +23,12 @@ brittle rules.
   threat intel), and the highest-impact tactics (credential access, lateral movement, exfil, impact).
 - **MITRE D3FEND** maps defensive countermeasures to offensive techniques — use it to reason about *which*
   control/detection counters a given technique.
+- **Cover your *environment-specific* attack vectors, not just generic ones.** Generic detections (common
+  protocols, well-known techniques) are table stakes; the higher-value coverage targets the attack surface your
+  org actually exposes (e.g. SMB or other high-risk protocols exposed for a business reason, specific SaaS/
+  cloud exposure). Work each vector → the indicators it produces → a structured triage that separates benign from
+  incident → clear criteria for elevating to an incident. (This is the detection side of the IR Detection &
+  Analysis phase; the `respond` skill consumes it.)
 
 ## The Pyramid of Pain (detect on behaviour, not just atoms)
 From easiest-for-the-attacker-to-change to hardest:

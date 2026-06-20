@@ -15,6 +15,10 @@ Goal: limit damage while **preserving evidence** and **not tipping off** the adv
   adversary, who may burn persistence or detonate (ransomware). Scope fully first (`ref 01`).
 - **Balance** speed vs. business impact vs. evidence vs. stealth — that trade-off is a **human decision**;
   present options + impact, then wait for approval.
+- **Containment isn't always isolation.** When a system is too business-critical to take offline, "control the
+  bleeding" with **other technical controls** — restrictive firewall/segmentation rules, blocking the C2 channel,
+  disabling the abused account/service, tightening access — rather than a full quarantine. The goal is to stop
+  spread and limit the adversary's reach while the system stays up.
 - **Action format** (so the guard can authorize it): `isolate-host: <name>`, `disable-account: <user>`,
   `block-ip: <ip>`, `block-hash: <sha256>`, `kill-process: <host> pid <n>`.
 
@@ -25,12 +29,20 @@ Goal: limit damage while **preserving evidence** and **not tipping off** the adv
 - **Close the root cause:** patch/▢ the exploited vulnerability, rotate exposed credentials/keys/secrets, fix
   the misconfiguration. If you don't fix initial access, they come back.
 - Re-image rather than clean when integrity is uncertain (especially for kernel-level/rootkit or ransomware).
+- **Eradication is never 100% — assume so.** Sophisticated/nation-state actors plant redundant persistence; you
+  may kill one backdoor and miss another, and you often don't know their full capability. Re-image where
+  feasible, watch closely afterward, and treat "fully eradicated" as a best-effort claim with confidence, not a
+  certainty.
 
 ## Recovery — restore to known-good (gated)
 - Restore systems/data from **known-good backups** (verify the backup predates compromise and is clean), rebuild
   from trusted images, and validate integrity before returning to production.
+- **Recovery is also *testing the fixes*** — verify the eradication actually held (the threat doesn't reappear),
+  controls are in place, and the system behaves normally before it's trusted again. A red-team/purple-team retest
+  of the closed attack path is a strong validation.
 - **Monitor closely** post-recovery for recurrence — deploy/raise the new detections (the `detect` skill) for the
-  observed TTPs; watch the previously affected assets and accounts.
+  observed TTPs; watch the previously affected assets and accounts. Post-incident monitoring is part of recovery,
+  not separate from it (in case eradication missed something).
 - Phase the return to production; confirm business functionality and that the attacker's access is truly gone.
 
 ## Post-incident (lessons learned → stronger defense)
