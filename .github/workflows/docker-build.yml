@@ -1,0 +1,64 @@
+# Agentic Blueteam(TM) — build & smoke-test the Docker image.
+# Copyright (c) 2026 Shad Nygren / Virtual Hipster Corporation · Apache-2.0 License
+name: docker-build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          tags: agentic-blueteam:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test
+        run: docker run --rm agentic-blueteam:ci bash /opt/agentic-blueteam/tests/smoke-test.sh
+
+  # ---------------------------------------------------------------------------
+  # Publish to GHCR. Disabled by default; enable once the repo is public (or
+  # configure GHCR auth for a private repo).
+  # ---------------------------------------------------------------------------
+  publish:
+    if: ${{ false }}            # set to: github.ref == 'refs/heads/main' to enable
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
