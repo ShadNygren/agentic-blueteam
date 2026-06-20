@@ -1,0 +1,13 @@
+Agentic Blueteam
+Copyright (c) 2026 Shad Nygren / Virtual Hipster Corporation
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+"Agentic Blueteam" is a trademark of Shad Nygren / Virtual Hipster Corporation.
+
+This product is driven by Claude Code (Claude is a trademark of Anthropic) and bundles third-party
+defensive-security and DFIR software, each under its own respective license. It is not affiliated with,
+sponsored by, or endorsed by Anthropic or any tool vendor. Those product names are used descriptively to
+identify the underlying software. No third-party logos are used.
+
+Agentic Blueteam is the defensive companion to Agentic Redteam (github.com/ShadNygren/agentic-redteam).
