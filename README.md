@@ -76,6 +76,21 @@ Both skills use **progressive disclosure**: a focused `SKILL.md` entry point (ha
 [containment, eradication & recovery](skills/respond/references/02-containment-eradication-recovery.md),
 [reporting & lessons learned](skills/respond/references/03-reporting-and-lessons-learned.md).
 
+## Strategic foundation
+All skills are grounded in a shared doctrine:
+[**The Strategy of Adversarial Co-Evolution**](docs/STRATEGY_OF_ADVERSARIAL_COEVOLUTION.md) (identical in the
+[Agentic Redteam](https://github.com/ShadNygren/agentic-redteam) companion). When both sides know the playbook
+(ATT&CK + D3FEND), *knowledge is only the floor* — victory is decided by **tempo, terrain, deception, and
+adaptation velocity**. Red vs. blue is **positive-sum sparring** (*iron sharpens iron*; "shall we play a game?")
+that makes the organization win the real battles, later, against the genuine adversary.
+
+## Keeping current (living project)
+New attacks are devised continuously, so defense must co-evolve. This project **continuously monitors
+cybersecurity developments and integrates emerging tactics and countermeasures** — ATT&CK/D3FEND/CAR updates,
+CISA/NSA advisories, community CTI, new research, and new attack surfaces (e.g. AI-incident detection) — and
+evolves **in lockstep with the red-team companion**: a new offensive technique on one side begets the matching
+detection on the other. See the doctrine's §12 and [`CHANGELOG.md`](CHANGELOG.md).
+
 ## Trademarks
 **Agentic Blueteam™** is a trademark of Shad Nygren / Virtual Hipster Corporation. This project is **driven by
 Claude Code** and bundles third-party defensive/DFIR software — it is **not affiliated with, sponsored by, or

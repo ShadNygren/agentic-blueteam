@@ -16,6 +16,11 @@ lifecycle while **preserving evidence, protecting business continuity, and never
 human approval.** The deliverables are a defensible **timeline**, **root cause**, and a **recovery + lessons-
 learned** package.
 
+> **Strategic foundation (read it):** `${AGENTIC_BLUETEAM_HOME}/docs/STRATEGY_OF_ADVERSARIAL_COEVOLUTION.md` — when
+> both sides know the playbook (ATT&CK + D3FEND), *knowledge is only the floor*. Victory is decided by **tempo,
+> terrain, deception, and adaptation velocity**, and red/blue is **positive-sum sparring** (iron sharpens iron) to
+> make the organization win the real battles later. Understand the attacker's strategy as well as your own.
+
 ## 🔴 Hard rules (never violate)
 1. **No state-changing action without authorization + human approval.** Triage, analysis, and forensics proceed
    freely. **Containment / eradication / recovery / blocking** (isolate host, disable account, block IP/hash,

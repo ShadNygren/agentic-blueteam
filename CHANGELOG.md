@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **`docs/STRATEGY_OF_ADVERSARIAL_COEVOLUTION.md`** — a strategic-foundation paper (shared verbatim with the
+  red-team companion): *when both sides know the playbook, knowledge is only the floor* — victory turns on
+  structural asymmetry, tempo (OODA), terrain, deception, force, discipline, and above all **adaptation velocity**
+  (the Red Queen / adversarial self-play engine — WarGames, AlphaZero, GANs). Red/blue is **positive-sum
+  sparring** (*iron sharpens iron*) and a **living document** that commits to continuously integrating emerging
+  TTPs. Wired into all three SKILL.md files, README (Strategic foundation + Keeping current), and the smoke test.
 - **`detect` reference `04-mitre-d3fend.md`** — MITRE D3FEND, the defensive counterpart to ATT&CK: the matrix
   (Model/Harden/Detect/Isolate/Deceive/Evict/Restore), the digital-artifact ontology that bridges to ATT&CK
   (mapping inferred via shared artifacts), the noun+verb naming, coverage-gap analysis, vendor/capability

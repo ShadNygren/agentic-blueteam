@@ -38,6 +38,8 @@ check "respond reference library present" test -f "$RES_REF/00-ir-methodology.md
 check "respond reference library complete (4 files)" test "$(ls -1 "$RES_REF"/*.md 2>/dev/null | wc -l)" -ge 4
 check "hunt reference library present"    test -f "$HUNT_REF/00-threat-hunting-methodology.md"
 check "hunt reference library complete (3 files)" test "$(ls -1 "$HUNT_REF"/*.md 2>/dev/null | wc -l)" -ge 3
+# shared strategic-foundation doctrine
+check "strategy doctrine doc present" test -f /opt/agentic-blueteam/docs/STRATEGY_OF_ADVERSARIAL_COEVOLUTION.md
 
 echo "[response guard]"
 # both skills carry the guard; it must REFUSE a state-changing action when no authorization file exists.
