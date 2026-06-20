@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **`detect` reference `04-mitre-d3fend.md`** — MITRE D3FEND, the defensive counterpart to ATT&CK: the matrix
+  (Model/Harden/Detect/Isolate/Deceive/Evict/Restore), the digital-artifact ontology that bridges to ATT&CK
+  (mapping inferred via shared artifacts), the noun+verb naming, coverage-gap analysis, vendor/capability
+  characterization (cut through the acronym soup) + D3FEND/ATT&CK extractors, caveats (not a checklist; notional
+  ≠ tested coverage; risk-driven prioritization), and CAR/CAPEC/CWE. Cross-referenced from `respond` (Isolate/
+  Evict/Restore/Deceive vocabulary) and `hunt` (CAR analytics). Smoke test now expects 5 detect reference files.
 - **`hunt` skill** — proactive, hypothesis-driven, assume-breach threat hunting (read-only: discovers and hands
   off to `respond`/`detect`, never takes action). References: methodology, hypotheses & analytics (stack
   counting / outliers / enrichment / pivoting), and hunting by domain (endpoint/network/identity/cloud, ATT&CK-mapped).

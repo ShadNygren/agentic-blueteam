@@ -21,8 +21,9 @@ brittle rules.
   detected / partial / none). This is the same artifact the red side produces, so they line up.
 - Prioritize coverage by **threat model**: techniques used by actors that target your org/industry (consume
   threat intel), and the highest-impact tactics (credential access, lateral movement, exfil, impact).
-- **MITRE D3FEND** maps defensive countermeasures to offensive techniques — use it to reason about *which*
-  control/detection counters a given technique.
+- **MITRE D3FEND** maps defensive countermeasures to offensive techniques (via shared digital artifacts) — use it
+  to reason about *which* control/detection counters a given technique, to run coverage-gap analysis, and to
+  characterize tooling by function. Full treatment: `references/04-mitre-d3fend.md`.
 - **Cover your *environment-specific* attack vectors, not just generic ones.** Generic detections (common
   protocols, well-known techniques) are table stakes; the higher-value coverage targets the attack surface your
   org actually exposes (e.g. SMB or other high-risk protocols exposed for a business reason, specific SaaS/

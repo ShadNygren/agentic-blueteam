@@ -33,7 +33,7 @@ DET_REF=/root/.claude/skills/detect/references
 RES_REF=/root/.claude/skills/respond/references
 HUNT_REF=/root/.claude/skills/hunt/references
 check "detect reference library present"  test -f "$DET_REF/00-detection-engineering-methodology.md"
-check "detect reference library complete (4 files)" test "$(ls -1 "$DET_REF"/*.md 2>/dev/null | wc -l)" -ge 4
+check "detect reference library complete (5 files)" test "$(ls -1 "$DET_REF"/*.md 2>/dev/null | wc -l)" -ge 5
 check "respond reference library present" test -f "$RES_REF/00-ir-methodology.md"
 check "respond reference library complete (4 files)" test "$(ls -1 "$RES_REF"/*.md 2>/dev/null | wc -l)" -ge 4
 check "hunt reference library present"    test -f "$HUNT_REF/00-threat-hunting-methodology.md"

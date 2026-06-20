@@ -12,6 +12,10 @@ Sources to generate hypotheses:
 - **Threat intelligence** — a fresh report's TTPs/IOCs; pivot them across your estate.
 - **Crown jewels** — "how would someone reach the payments DB?" → hunt those access paths.
 - **Anomaly** — "service accounts shouldn't log on interactively" → hunt for ones that did.
+- **Ready-made analytics (MITRE CAR)** — the **Cyber Analytics Repository** is a free library of ATT&CK-mapped
+  detection analytics (e.g. autoruns/persistence via Sysinternals, Zeek scripts for SMB on port 445) — a fast
+  source of hunt hypotheses and queries. Pair with **D3FEND Detect** techniques (see the `detect` skill's
+  D3FEND reference) to frame what you're analyzing (process-spawn analysis, network-traffic analysis, etc.).
 Write the hypothesis down *before* hunting; record the result against it (confirmed / refuted / inconclusive).
 
 ## Core analytic techniques

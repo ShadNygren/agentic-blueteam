@@ -62,7 +62,8 @@ Both skills use **progressive disclosure**: a focused `SKILL.md` entry point (ha
 [methodology](skills/detect/references/00-detection-engineering-methodology.md),
 [detection-as-code & Sigma/YARA](skills/detect/references/01-detection-as-code-and-sigma.md),
 [telemetry & data sources](skills/detect/references/02-telemetry-and-data-sources.md),
-[purple-team validation](skills/detect/references/03-purple-team-and-validation.md).
+[purple-team validation](skills/detect/references/03-purple-team-and-validation.md),
+[MITRE D3FEND](skills/detect/references/04-mitre-d3fend.md).
 
 **[`hunt`](skills/hunt/SKILL.md)** — threat hunting (read-only). References:
 [methodology](skills/hunt/references/00-threat-hunting-methodology.md),

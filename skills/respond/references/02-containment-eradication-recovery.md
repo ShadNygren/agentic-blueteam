@@ -5,6 +5,11 @@ must (a) match an approved line in `/work/AUTHORIZED_RESPONSE.txt` (`scripts/res
 explicit human "go," and (c) be recorded in `/work/INCIDENT.md` with who approved it and when. Preserve evidence
 *before* any destructive step.
 
+> **In MITRE D3FEND vocabulary** these phases are the **Isolate** (containment), **Evict** (eradication), and
+> **Restore** (recovery) tactics; **Deceive** (honeytokens/decoys) is a related high-signal detection the
+> `detect` skill can deploy. Using D3FEND terms keeps the response legible alongside detection coverage — see
+> `detect/references/04-mitre-d3fend.md`.
+
 ## Containment — stop the spread (gated)
 Goal: limit damage while **preserving evidence** and **not tipping off** the adversary prematurely.
 - **Short-term, reversible first:** isolate a host (network quarantine via EDR — keep it powered for memory),

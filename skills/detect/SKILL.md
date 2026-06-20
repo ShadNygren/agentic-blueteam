@@ -36,6 +36,9 @@ Think detection-as-code: every detection is versioned, tested, mapped to ATT&CK,
   Data Sources, data quality, what to collect for which technique.
 - `references/03-purple-team-and-validation.md` — the red/blue loop: validate detections against Agentic Redteam
   ATT&CK Navigator layers + Atomic Red Team; the defender's detection-gap matrix; MTTD/MTTR.
+- `references/04-mitre-d3fend.md` — the defensive counterpart to ATT&CK: the D3FEND matrix (Model/Harden/Detect/
+  Isolate/Deceive/Evict/Restore), the digital-artifact ontology that bridges to ATT&CK, coverage-gap analysis,
+  vendor/capability characterization, and CAR/CAPEC/CWE.
 
 ## How to run detection engineering
 Work the loop; save detections to `/work/detections/` and notes/evidence to `/work/evidence/`.
