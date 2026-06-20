@@ -21,10 +21,10 @@ The skills (use the right one for the job):
 - **`detect`** — **detection engineering & monitoring**: build/tune detections against MITRE ATT&CK
   (detection-as-code, Sigma/YARA), map telemetry coverage, and **validate detections against Agentic Redteam
   emulations**.
+- **`hunt`** — **threat hunting**: proactive, hypothesis-driven, assume-breach search of telemetry for activity
+  detections missed. Read-only — it discovers and hands off to `respond`/`detect`.
 - **`respond`** — **incident response / DFIR**: triage → contain → eradicate → recover, with forensic integrity,
   a timeline, and ATT&CK-mapped root cause (NIST SP 800-61 / SANS PICERL).
-
-> Threat hunting (`hunt`) is a planned next skill; for now hunting guidance lives inside `detect`/`respond`.
 
 ## Quick start
 ```bash
@@ -64,10 +64,16 @@ Both skills use **progressive disclosure**: a focused `SKILL.md` entry point (ha
 [telemetry & data sources](skills/detect/references/02-telemetry-and-data-sources.md),
 [purple-team validation](skills/detect/references/03-purple-team-and-validation.md).
 
+**[`hunt`](skills/hunt/SKILL.md)** — threat hunting (read-only). References:
+[methodology](skills/hunt/references/00-threat-hunting-methodology.md),
+[hypotheses & analytics](skills/hunt/references/01-hypotheses-and-analytics.md),
+[hunting by domain](skills/hunt/references/02-hunting-by-domain.md).
+
 **[`respond`](skills/respond/SKILL.md)** — incident response / DFIR. References:
 [IR methodology](skills/respond/references/00-ir-methodology.md),
 [triage & forensics](skills/respond/references/01-triage-and-forensics.md),
-[containment, eradication & recovery](skills/respond/references/02-containment-eradication-recovery.md).
+[containment, eradication & recovery](skills/respond/references/02-containment-eradication-recovery.md),
+[reporting & lessons learned](skills/respond/references/03-reporting-and-lessons-learned.md).
 
 ## Trademarks
 **Agentic Blueteam™** is a trademark of Shad Nygren / Virtual Hipster Corporation. This project is **driven by

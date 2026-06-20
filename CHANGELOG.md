@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- **`hunt` skill** — proactive, hypothesis-driven, assume-breach threat hunting (read-only: discovers and hands
+  off to `respond`/`detect`, never takes action). References: methodology, hypotheses & analytics (stack
+  counting / outliers / enrichment / pivoting), and hunting by domain (endpoint/network/identity/cloud, ATT&CK-mapped).
+- **`respond` reference `03-reporting-and-lessons-learned.md`** — IR report structure, metrics (dwell time /
+  MTTD/MTTC/MTTR), and closing the loop into `detect`/`hunt`.
+
+### Changed
+- **Base image → `ubuntu:24.04`** (more complete than debian-slim) and **Python tools installed via `pipx`**
+  (isolated virtualenvs) — fixes the PEP-668 failure where `pip --break-system-packages` conflicted with
+  apt-managed packages. `sigma` (sigma-cli) and `vol` (volatility3) are now reliably present; the smoke test
+  promotes them from non-fatal warnings to hard checks.
+- **CI now builds, smoke-tests, and publishes the image to GHCR** (`ghcr.io/shadnygren/agentic-blueteam`) as a
+  **private** package on pushes to `main` — building once and pushing the exact tested image (`:latest` + short
+  SHA).
 
 ## [0.1.0] - 2026-06-20
 Initial scaffold of the **defensive companion to Agentic Redteam** — an AI-augmented blue-team toolkit (Kali's

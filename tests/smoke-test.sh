@@ -21,19 +21,23 @@ check "jq present"                   command -v jq
 check "yara present"                 command -v yara
 
 echo "[defensive tools]"
-# pip-installed (best-effort in the Dockerfile); non-fatal if absent.
-command -v sigma >/dev/null 2>&1 && echo "  ok   sigma (sigma-cli) present" || echo "  warn sigma absent (pip best-effort)"
-command -v vol   >/dev/null 2>&1 && echo "  ok   vol (volatility3) present" || echo "  warn volatility3 absent (pip best-effort)"
+# installed via pipx (isolated venvs, PEP-668-safe) — hard requirements.
+check "sigma (sigma-cli) present"  command -v sigma
+check "vol (volatility3) present"  command -v vol
 
 echo "[skills + reference libraries]"
 check "detect skill present"  test -f /root/.claude/skills/detect/SKILL.md
 check "respond skill present" test -f /root/.claude/skills/respond/SKILL.md
+check "hunt skill present"    test -f /root/.claude/skills/hunt/SKILL.md
 DET_REF=/root/.claude/skills/detect/references
 RES_REF=/root/.claude/skills/respond/references
+HUNT_REF=/root/.claude/skills/hunt/references
 check "detect reference library present"  test -f "$DET_REF/00-detection-engineering-methodology.md"
 check "detect reference library complete (4 files)" test "$(ls -1 "$DET_REF"/*.md 2>/dev/null | wc -l)" -ge 4
 check "respond reference library present" test -f "$RES_REF/00-ir-methodology.md"
-check "respond reference library complete (3 files)" test "$(ls -1 "$RES_REF"/*.md 2>/dev/null | wc -l)" -ge 3
+check "respond reference library complete (4 files)" test "$(ls -1 "$RES_REF"/*.md 2>/dev/null | wc -l)" -ge 4
+check "hunt reference library present"    test -f "$HUNT_REF/00-threat-hunting-methodology.md"
+check "hunt reference library complete (3 files)" test "$(ls -1 "$HUNT_REF"/*.md 2>/dev/null | wc -l)" -ge 3
 
 echo "[response guard]"
 # both skills carry the guard; it must REFUSE a state-changing action when no authorization file exists.
