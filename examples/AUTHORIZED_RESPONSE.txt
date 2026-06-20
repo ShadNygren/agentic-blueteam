@@ -1,0 +1,12 @@
+# Copy to /work/AUTHORIZED_RESPONSE.txt. One pre-authorized response action per line.
+# The skills' response_guard.sh refuses ANY state-changing/response action (host isolation,
+# account disable, IP/hash block, process kill, eradication) that does not exactly match a line here.
+# If this file is missing, the guard refuses everything — analysis/read-only work still proceeds.
+# Lines starting with # are comments. Keep this in sync with the incident's approved containment plan.
+#
+# Examples (delete these; add the actions your IR authorization actually permits):
+# isolate-host: WKSTN-0423
+# disable-account: corp\j.doe
+# block-ip: 198.51.100.23
+# block-hash: 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
+# kill-process: WKSTN-0423 pid 4680
