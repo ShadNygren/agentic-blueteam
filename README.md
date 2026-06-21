@@ -19,7 +19,8 @@
 ## What this is
 A Docker image that packages **defensive / DFIR tooling + Claude Code + Claude Code skills** into a single,
 runnable, AI-augmented blue-team toolkit. Claude Code orchestrates the toolset by following recognized
-methodologies — **MITRE ATT&CK / NIST SP 800-61 (incident handling) / the Detection Engineering lifecycle** —
+methodologies — **MITRE ATT&CK and its defensive counterpart MITRE D3FEND / NIST SP 800-61 (incident
+handling) / the Detection Engineering lifecycle** —
 wrapped in a **deterministic harness with human-in-the-loop control** so every finding is **tool-evidenced and
 reproducible, not hallucinated**, and every **state-changing response action is gated**.
 
