@@ -1,0 +1,102 @@
+# ==========================================================================
+# .gitignore — Agentic Redteam / Agentic Blueteam
+# Goal: never commit build artifacts, secrets, runtime evidence, or OS/IDE junk.
+# ==========================================================================
+
+# --- Operating system ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# --- Editors / IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.*.sw[a-p]
+*.sublime-workspace
+*.sublime-project
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+develop-eggs/
+.eggs/
+*.egg-info/
+*.egg
+wheels/
+.venv/
+venv/
+env/
+ENV/
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.coverage
+.coverage.*
+htmlcov/
+.hypothesis/
+.ipynb_checkpoints/
+
+# --- Node / JavaScript ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm/
+
+# --- Engagement / runtime workspace (NEVER commit results, evidence, scope, or auth) ---
+work/
+/work/
+evidence/
+loot/
+
+# --- Secrets & credentials (NEVER commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+id_rsa*
+id_ed25519*
+id_dsa*
+*.ovpn
+*.kdbx
+credentials
+secrets.*
+.aws/
+*.tfstate
+*.tfstate.*
+
+# --- Logs & temp ---
+*.log
+*.tmp
+*.temp
+tmp/
+.cache/
+
+# --- Scan artifacts (CI outputs, not source) ---
+*.sarif
+trivy-results.*
+grype-results.*
+
+# --- Docker / local ---
+.env.docker
