@@ -94,6 +94,12 @@ criteria — don't leave something classified an "incident" for weeks/months wit
   detonating?). Severity drives speed, who's pulled in, and comms.
 - **Classify** — malware, BEC/phishing, ransomware, insider, web compromise, account takeover, data breach, **AI/
   data-spillage** — each has a different playbook.
+- **Decide containment by expected utility, not by probability alone.** Whether to take a (gated) disruptive
+  action weighs the **compromise-likelihood band** against the **cost asymmetry** — downtime of a wrong isolation
+  vs. damage of a missed breach. A **high-value asset justifies acting at a lower band** (isolate a prod DB at a
+  Medium band; merely monitor a dev box at the same band). The math engine
+  `tools/bayesian/blue_team_response_simulator.py` computes this; it is **advisory** — the action stays
+  **human-gated** (`references/02`). Doctrine: `${AGENTIC_BLUETEAM_HOME}/docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md`.
 
 ## Roles & comms
 - **Incident commander** (coordinates, makes the call), **handlers/analysts** (do the work), **scribe** (keeps

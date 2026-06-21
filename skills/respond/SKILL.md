@@ -21,6 +21,13 @@ learned** package.
 > terrain, deception, and adaptation velocity**, and red/blue is **positive-sum sparring** (iron sharpens iron) to
 > make the organization win the real battles later. Understand the attacker's strategy as well as your own.
 
+> **Reason under uncertainty (read it):** `${AGENTIC_BLUETEAM_HOME}/docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md` —
+> triage and fuse signals Bayesianly using **qualitative bands** (Very Low … Very High), **never invented numbers**.
+> Mind base rates (a noisy detector on a hardened asset is still probably a false alarm), chain **weak signals**
+> into a confident picture without double-counting correlated ones, and decide containment by **expected utility**
+> (a high-value asset justifies acting at a lower band) — always **human-gated**. For exact figures, call the
+> deterministic engines in `${AGENTIC_BLUETEAM_HOME}/tools/bayesian/`.
+
 ## 🔴 Hard rules (never violate)
 1. **No state-changing action without authorization + human approval.** Triage, analysis, and forensics proceed
    freely. **Containment / eradication / recovery / blocking** (isolate host, disable account, block IP/hash,

@@ -51,9 +51,11 @@ RUN pipx install sigma-cli \
 COPY skills/ /root/.claude/skills/
 RUN mkdir -p ${AGENTIC_BLUETEAM_HOME}
 COPY docs/   ${AGENTIC_BLUETEAM_HOME}/docs/
+COPY tools/  ${AGENTIC_BLUETEAM_HOME}/tools/
 COPY tests/  ${AGENTIC_BLUETEAM_HOME}/tests/
 COPY README.md SECURITY.md NOTICE LICENSE ${AGENTIC_BLUETEAM_HOME}/
-RUN chmod +x ${AGENTIC_BLUETEAM_HOME}/tests/*.sh /root/.claude/skills/*/scripts/*.sh 2>/dev/null || true
+RUN chmod +x ${AGENTIC_BLUETEAM_HOME}/tests/*.sh /root/.claude/skills/*/scripts/*.sh \
+      ${AGENTIC_BLUETEAM_HOME}/tools/bayesian/*.py 2>/dev/null || true
 
 # 6) Workspace — mount a volume here: logs/evidence IN, detections/report OUT.
 WORKDIR /work

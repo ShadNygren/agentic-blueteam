@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **Bayesian reasoning under uncertainty.** New `docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md` (shared verbatim
+  with the red companion): reason in **qualitative bands** (Very Low … Very High), **never LLM-invented numbers**;
+  mind **base rates** (a noisy detector on a hardened asset is still probably a false alarm); **fuse weak signals**
+  (sequential updating) without double-counting correlated ones; decide containment by **expected utility** (a
+  high-value asset justifies acting at a lower band) — always human-gated. New deterministic engines in
+  `tools/bayesian/` (`bands.py`, `vulnerability_calculator.py`, `blue_team_response_simulator.py`) — pure-stdlib,
+  each returns the number **and** its band. Wired into all three SKILL.md files, `detect/00` (Bayesian alert
+  triage), `hunt/01` (weak-signal fusion), `respond/00` (expected-utility containment), README, Dockerfile, and
+  smoke test.
 - **Adversary-emulation wisdom integrated** (from red-team CTI/emulation material): `detect/03` now explains the
   cyclic **emulation lifecycle** (choose → test → execute → analyze → improve; blue owns analyze+improve) and that
   emulation tests the **Defenders' readiness/resilience — including escalation/communication** — not just whether

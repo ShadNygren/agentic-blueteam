@@ -41,6 +41,13 @@ check "hunt reference library complete (3 files)" test "$(ls -1 "$HUNT_REF"/*.md
 # shared strategic-foundation doctrine
 check "strategy doctrine doc present" test -f /opt/agentic-blueteam/docs/STRATEGY_OF_ADVERSARIAL_COEVOLUTION.md
 
+echo "[bayesian reasoning tools]"
+BAY=/opt/agentic-blueteam/tools/bayesian
+check "bayesian doctrine doc present"     test -f /opt/agentic-blueteam/docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md
+check "vulnerability_calculator runs"     python3 "$BAY/vulnerability_calculator.py"
+check "blue_team_response_simulator runs" python3 "$BAY/blue_team_response_simulator.py"
+check "prob_to_band maps Very High"       bash -c "cd '$BAY' && python3 -c 'from bands import prob_to_band; assert prob_to_band(0.95)==\"Very High\" and prob_to_band(0.05)==\"Very Low\"'"
+
 echo "[response guard]"
 # both skills carry the guard; it must REFUSE a state-changing action when no authorization file exists.
 for RG in /root/.claude/skills/detect/scripts/response_guard.sh /root/.claude/skills/respond/scripts/response_guard.sh; do

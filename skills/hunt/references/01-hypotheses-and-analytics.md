@@ -33,6 +33,12 @@ Write the hypothesis down *before* hunting; record the result against it (confir
   data to related hosts/accounts/sessions, expanding the picture (and the scope of any incident).
 - **Long-tail / least-frequency-of-occurrence** — the inverse of dashboards: the loudest things are usually
   benign; the **rarest** are where intrusions hide.
+- **Bayesian signal fusion (chain weak signals).** Living-off-the-land activity hides in individually-benign
+  anomalies. Update an asset's compromise **band** sequentially as each weak signal arrives — the posterior of one
+  becomes the prior of the next — e.g. *odd internal port scan* (Very Low → Low) → *admin login from an unusual
+  IP* (Low → Medium) → *`vssadmin` deleting shadow copies* (Medium → Very High). The fused band reveals the attack
+  graph **before** any single critical alert. **Don't double-count correlated signals** (overconfidence). Doctrine:
+  `${AGENTIC_BLUETEAM_HOME}/docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md`.
 
 ## Investigating a hit (benign vs. malicious)
 For each candidate, gather: the full **process tree** (parent/child, command line), **user + host context**,

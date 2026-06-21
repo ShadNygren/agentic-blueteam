@@ -84,6 +84,16 @@ All skills are grounded in a shared doctrine:
 adaptation velocity**. Red vs. blue is **positive-sum sparring** (*iron sharpens iron*; "shall we play a game?")
 that makes the organization win the real battles, later, against the genuine adversary.
 
+## Probabilistic reasoning (Bayesian)
+Defensive work is largely **alert triage and signal fusion under uncertainty.** This project applies **Bayesian
+reasoning** with a hard rule for LLM reliability: **reason in qualitative bands — Very Low / Low / Medium / High /
+Very High — never invented numbers.** Mind base rates (a noisy detector on a hardened asset is still probably a
+false alarm), **fuse weak signals** into a confident picture without double-counting correlated ones, and decide
+containment by **expected utility** (a high-value asset justifies acting at a lower band) — always **human-gated**.
+When an **exact** figure is needed, the agent calls the deterministic engines in [`tools/bayesian/`](tools/bayesian)
+(vulnerability calculator, response/expected-utility simulator) — the neuro-symbolic / deterministic-harness
+pattern. Doctrine: [`docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md`](docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md).
+
 ## Keeping current (living project)
 New attacks are devised continuously, so defense must co-evolve. This project **continuously monitors
 cybersecurity developments and integrates emerging tactics and countermeasures** — ATT&CK/D3FEND/CAR updates,

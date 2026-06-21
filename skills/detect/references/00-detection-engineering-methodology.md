@@ -43,6 +43,12 @@ attacker real effort to evade — invest there. Keep IOC matching too (fast, che
   noisy rules is a security failure, not a detail.
 - Track **true-positive vs false-positive rate** per rule; a rule that's 95% FP trains analysts to ignore it.
 - Add **context** to alerts (host, user, process tree, ATT&CK ID, severity) so triage is fast.
+- **Reason about alerts Bayesianly (base rates matter).** A rule's raw FP *rate* isn't its real-world fidelity:
+  on a **rare** true condition, even an "accurate" detector mostly fires false alarms (the base-rate fallacy).
+  Weight each alert by the asset's **prior band** (exposure/value/vuln-surface) × the detector's fidelity → a
+  posterior confidence **band** (Very Low … Very High). Same alert → suppress on a hardened low-value asset,
+  escalate on an exposed high-value one. Doctrine + the math engine:
+  `${AGENTIC_BLUETEAM_HOME}/docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md` and `tools/bayesian/`.
 - Prefer **higher-fidelity correlations** (multiple weak signals) over single noisy indicators where possible.
 
 ## Metrics that matter
