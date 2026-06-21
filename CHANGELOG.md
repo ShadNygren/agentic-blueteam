@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **README badges + supply-chain security:** Docker Build, Security Scan, OpenSSF Scorecard, SBOM, and License
+  badges. New `security.yml` workflow generates an **SBOM** (CycloneDX + SPDX, via Syft) and runs a **vulnerability
+  scan** (Grype, SARIF -> Security tab); new `scorecard.yml` runs the OpenSSF Scorecard. **Trivy is deliberately
+  avoided** (the `aquasecurity/trivy-action`/`setup-trivy` TeamPCP supply-chain compromise, March 2026) in favor of
+  the uncompromised Syft/Grype (Anchore). Added a `.gitignore` (and removed accidentally-committed `__pycache__/*.pyc`).
 - **"The companion is not a free pass" — keep your guard up.** The red companion is public/dual-use, so
   "agentic-redteam-shaped" activity could be your team, a consultant, **or a real adversary mimicking the pentest
   to hide.** New strategy-doctrine **§10.1** (shared) + hardened blue stance: `respond/00` deconfliction is now

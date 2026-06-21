@@ -4,6 +4,12 @@
 
 **Copyright © 2026 Shad Nygren / Virtual Hipster Corporation · Apache-2.0 License**
 
+[![Docker Build](https://github.com/ShadNygren/agentic-blueteam/actions/workflows/docker-build.yml/badge.svg)](https://github.com/ShadNygren/agentic-blueteam/actions/workflows/docker-build.yml)
+[![Security Scan](https://github.com/ShadNygren/agentic-blueteam/actions/workflows/security.yml/badge.svg)](https://github.com/ShadNygren/agentic-blueteam/actions/workflows/security.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ShadNygren/agentic-blueteam/badge)](https://scorecard.dev/viewer/?uri=github.com/ShadNygren/agentic-blueteam)
+[![SBOM](https://img.shields.io/badge/SBOM-CycloneDX%20%2B%20SPDX-blue)](https://github.com/ShadNygren/agentic-blueteam/actions/workflows/security.yml)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
 > 🛡️ **Defensive companion to [Agentic Redteam](https://github.com/ShadNygren/agentic-redteam).** Where
 > Agentic Redteam *emulates* adversaries, Agentic Blueteam *detects and responds* to them — and validates its
 > detections against the red side's ATT&CK-mapped emulations (the red/blue loop).
