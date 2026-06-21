@@ -11,6 +11,11 @@ Its outputs feed both response (incidents) and detection engineering (new rules)
   `respond` skill acts (gated) and the `detect` skill operationalizes (standing rules).
 - **Assume breach** is the mindset: don't ask "are we compromised?" but "*how* would I find the compromise that's
   already here, given our blind spots?"
+- **"Looks like the pentest" is a reason to hunt harder, not to relax.** A real adversary deliberately mimics
+  red-team/pentest tradecraft (incl. public tooling like `agentic-redteam`) to blend in — so resemblance to
+  authorized testing is a *hiding place*, not a clearance. Treat it as suspicious until **positively deconflicted**
+  (`respond/references/00`; doctrine §10.1), and hunt the residual: is *every* such event accounted for by the
+  white cell's operator log, or is one of them the real thing wearing the costume?
 
 ## The hunt loop
 1. **Hypothesis** — a specific, testable statement about adversary behaviour (`references/01`).

@@ -106,8 +106,13 @@ criteria — don't leave something classified an "incident" for weeks/months wit
   `/work/INCIDENT.md` current). Define an **escalation + approval path** for gated actions.
 - **Communications** — internal stakeholders, leadership, and (if required) legal, PR, and customers. Use an
   out-of-band channel if the primary comms may be compromised. Avoid tipping off the adversary.
-- **Deconfliction with offensive testing** — confirm the activity isn't an authorized red-team engagement before
-  declaring a real incident (the red side keeps a timestamped operator log for exactly this).
+- **Deconfliction with offensive testing — confirm, never assume.** Before downgrading activity as "just the red
+  team," get **positive confirmation**: a white-cell/trusted-agent reply, a signed authorization for that window,
+  or a match against the red team's timestamped operator log. **Resemblance to a pentest/red-team proves nothing**
+  — the offensive tooling is public and dual-use, and a *real* adversary will deliberately **mimic the red team to
+  hide** ("oh, that's just the security assessment," incl. tools that look like `agentic-redteam`). **Default:
+  treat it as a real attacker until deconfliction positively confirms otherwise.** Never relax, suppress, or stand
+  down on resemblance alone. (See the shared doctrine `docs/STRATEGY_OF_ADVERSARIAL_COEVOLUTION.md` §10.1.)
 
 ## Legal, regulatory & evidence
 - **Breach-notification obligations** vary by data + jurisdiction (PCI DSS, HIPAA, GDPR, state laws) and often

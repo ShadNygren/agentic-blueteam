@@ -45,6 +45,10 @@ portable, auditable, and maintainable — the opposite of click-ops rules buried
 - For each FP, decide: tighten the selection, add an exclusion (`filter`) for known-good, raise the correlation
   threshold, or lower severity. Document *why* each exclusion exists (exclusions are attack surface — an
   attacker who learns them can hide).
+- **Never exclude/whitelist activity just because it "looks like the red team / a pentest."** That tuning is a
+  gift to a real adversary, who will mimic pentest tradecraft (incl. tooling like `agentic-redteam`) to ride the
+  exclusion. Scope any test-traffic suppression to **deconflicted** source IPs/accounts/time windows that are
+  positively confirmed (see `respond/references/00` deconfliction; doctrine §10.1) — not to a *behaviour pattern*.
 - Re-run the **test case** after every tune to confirm you didn't break true-positive detection.
 
 ## Other detection content

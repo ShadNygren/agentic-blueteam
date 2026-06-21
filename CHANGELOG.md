@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- **"The companion is not a free pass" — keep your guard up.** The red companion is public/dual-use, so
+  "agentic-redteam-shaped" activity could be your team, a consultant, **or a real adversary mimicking the pentest
+  to hide.** New strategy-doctrine **§10.1** (shared) + hardened blue stance: `respond/00` deconfliction is now
+  **positive-confirmation-only** (white cell / signed authorization / operator-log match; default = treat as a
+  real attacker until confirmed); `detect/01` — **never whitelist/exclude on red-team *resemblance*** (scope
+  test-traffic suppression to deconflicted IPs/accounts/windows, not a behaviour pattern); `hunt/00` — "looks like
+  the pentest" is a reason to hunt *harder*, not to relax.
 - **Bayesian reasoning under uncertainty.** New `docs/BAYESIAN_REASONING_UNDER_UNCERTAINTY.md` (shared verbatim
   with the red companion): reason in **qualitative bands** (Very Low … Very High), **never LLM-invented numbers**;
   mind **base rates** (a noisy detector on a hardened asset is still probably a false alarm); **fuse weak signals**

@@ -197,6 +197,29 @@ This is why both projects are built on the *same* deterministic-harness, ATT&CK-
 foundation, and why this strategy document is **shared verbatim** between them. They are two halves of one
 learning system.
 
+### 10.1 The companion is not a free pass (trust no actor by resemblance)
+The positive-sum framing describes the *intent* of an authorized exercise — it is **not** a license for the
+defender to relax. The offensive tooling and TTPs here are **public and dual-use**: the entity wielding
+"agentic-redteam-shaped" activity might be your own engineers, a hired consultant — **or a genuine adversary**,
+including a nation-state, who knows that **the perfect cover is to look exactly like the pentest.** A real
+attacker will *deliberately* mimic the red team's tradecraft to be waved through ("oh, that's just the security
+assessment").
+
+Therefore the blue team's standing rule:
+- **Resemblance to the red team proves nothing.** Never suppress, whitelist, downgrade, or stand down on an event
+  *because it looks like* the red team / a pentest / agentic-redteam.
+- **Authorized = positively deconflicted, never assumed.** An event is only attributable to an authorized
+  engagement when **confirmed** through the deconfliction channel — a white-cell/trusted-agent confirmation, a
+  signed authorization for that window, or a match against the red team's timestamped operator log. Absent that
+  positive confirmation, the **default is: treat it as a real adversary** and respond accordingly.
+- This is precisely *why* the red side keeps a timestamped operator log, a white cell, and benign proof markers
+  (§10 above and the operator-log discipline): red activity is **indistinguishable from a real attack by design**,
+  so only deconfliction — not the defender's good faith — separates the two. Blue is *right* to treat red as
+  hostile until confirmed; red earns the distinction by being deconflictable, not by being trusted.
+
+Iron sharpens iron — but you never hand your sparring partner a real knife and assume the next person holding one
+is also just sparring. Keep your guard up.
+
 ## 11. Implications for these projects (how the doctrine becomes practice)
 - **Each side models the other from public frameworks.** Red studies D3FEND (the defender's countermeasures, the
   artifact lens, deception); blue studies ATT&CK (the adversary's TTPs, the kill chain, threat-actor emulation).
